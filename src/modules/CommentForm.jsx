@@ -2,11 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default class CommentForm extends React.Component {
-  render() {
-    return(
-      <div className='commentForm'>
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
+    handleSubmit(e) {
+        e.preventDefault();
+        var author = this.refs.author.value.trim();
+        var text = this.refs.text.value.trim();
+        if (!text || !author) return;
+        this.props.onCommentSubmit({author: author, text: text});
+        this.refs.author.value = '';
+        this.refs.text.value = '';
+    }
+
+
+    render() {
+        return(
+            <form className='commentForm' onSubmit={this.handleSubmit.bind(this)}>
+                <input type='text' placeholder='Your name' ref='author' />
+                <input type='text' placeholder='Say something...' ref='text' />
+                <input type='submit' value='post' />
+            </form>
+        );
+    }
 }

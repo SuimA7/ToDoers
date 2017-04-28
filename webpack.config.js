@@ -11,5 +11,11 @@ module.exports = {
             }
         }]
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    devServer: {
+        contentBase: 'public',
+        hot: true, 
+        inline: true, 
+        port: 8081
+    }
 }

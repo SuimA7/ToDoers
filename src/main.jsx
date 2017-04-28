@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CommentBox from 'babel-loader!./modules/CommentBox.jsx';
 require('style-loader!css-loader!stylus-loader!./assets/style/style.styl');
-
+    
 
 print("Hello webpack");
 
@@ -13,11 +13,12 @@ console.log(d.eat('beef'));
 
 
 var data = [
-    {author: 'aaaaaPete Hunt', text: 'fffffThis is one comment'},
+    {author: 'Pete Hunt', text: 'This is one comment'},
     {author: 'Jordan Walke', text: 'This is *another* comment'}
 ]
 
   ReactDOM.render(
-    <CommentBox data={data}/>,
+    <CommentBox url="/comments.json" pollInterval={2000} />,
     document.getElementById('container')
   );
+
