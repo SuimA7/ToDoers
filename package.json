@@ -4,8 +4,10 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "webpack": "webpack",
+    "webpack": "webpack --watch",
     "webpack-dev-server": "./node_modules/.bin/webpack-dev-server",
+    "server_up": "node ./server.js",
+    "start": "concurrently \"npm run webpack\" \"npm run server_up \"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +21,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.17.1",
     "browser-sync": "^2.18.8",
+    "concurrently": "^3.4.0",
     "css-loader": "^0.28.0",
     "express": "^4.15.2",
     "jquery": "^3.2.1",

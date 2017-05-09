@@ -11,6 +11,7 @@ export default class CommentBox extends React.Component {
       data:[]
     };
   }
+  
   loadCommentsFromServer() {
     $.ajax({
       url: this.props.url,
@@ -24,6 +25,9 @@ export default class CommentBox extends React.Component {
   }
 
   handleCommentSubmit( comment ) {
+    var comments = this.state.data;
+    var newComments = comments.concat([comment]);
+    this.setState({data: newComments});
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -44,7 +48,7 @@ export default class CommentBox extends React.Component {
   render() {
     return(
       <div className='commentBox'>
-        <h2>Commtents</h2>
+        <h2>Tasks</h2>
         <CommentList data={this.state.data}/>
         <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this)} />
       </div>

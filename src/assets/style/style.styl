@@ -1,10 +1,9 @@
-ul#list
-  for num in 1..5
-    if num % 2 == 0
-      li:nth-child({num})
-        color skyblue
-    else
-      li:nth-child({num})
-        color gold
-    li:nth-child({num})
-      font-size num * 11px
+
+
+ul.menu
+  display flex
+  flex-direction row
+  list-style-type none
+  .tab
+    font-size 18px
+    color #333
